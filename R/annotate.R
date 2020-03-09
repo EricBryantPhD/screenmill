@@ -372,10 +372,10 @@ annotate <- function(dir = '.', queries,
 
 
     # Lookup tables -----------------------------------------------------------
-    output$strain_collections <- renderDataTable(strain_collections, options = list(pageLength = 5))
-    output$queries <- renderDataTable(queries, options = list(pageLength = 5))
-    output$treatments <- renderDataTable(treatments, options = list(pageLength = 5))
-    output$media <- renderDataTable(media, options = list(pageLength = 5))
+    output$strain_collections <- DT::renderDataTable(strain_collections, options = list(pageLength = 5))
+    output$queries <- DT::renderDataTable(queries, options = list(pageLength = 5))
+    output$treatments <- DT::renderDataTable(treatments, options = list(pageLength = 5))
+    output$media <- DT::renderDataTable(media, options = list(pageLength = 5))
 
     # On Click Save -----------------------------------------------------------
     observeEvent(input$save, {
@@ -534,13 +534,13 @@ annotate <- function(dir = '.', queries,
           been filled in the above tables, you may press save to exit this
           application:')),
         h2(tags$small('Queries')),
-        dataTableOutput('queries'),
+        DT::dataTableOutput('queries'),
         h2(tags$small('Strain collections')),
-        dataTableOutput('strain_collections'),
+        DT::dataTableOutput('strain_collections'),
         h2(tags$small('Treatments')),
-        dataTableOutput('treatments'),
+        DT::dataTableOutput('treatments'),
         h2(tags$small('Media')),
-        dataTableOutput('media')
+        DT::dataTableOutput('media')
       )
     )
 
